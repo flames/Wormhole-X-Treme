@@ -366,7 +366,7 @@ public class StargateDBManager {
                 } else {
                     updateGateStatement.setString(2, "");
                 }
-                updateGateStatement.setLong(3, s.getGateWorld().getId());
+                updateGateStatement.setString(3, s.getGateWorld().getUID().toString());
                 updateGateStatement.setString(4, s.getGateWorld().getName());
                 updateGateStatement.setString(5, s.getGateWorld().getEnvironment().toString());
                 updateGateStatement.setString(6, s.getGateOwner());
@@ -394,7 +394,7 @@ public class StargateDBManager {
                     storeStatement.setString(3, "");
                 }
 
-                storeStatement.setLong(4, s.getGateWorld().getId());
+                storeStatement.setString(4, s.getGateWorld().getUID().toString());
                 storeStatement.setString(5, s.getGateWorld().getName());
                 storeStatement.setString(6, s.getGateWorld().getEnvironment().toString());
                 storeStatement.setString(7, s.getGateOwner());
