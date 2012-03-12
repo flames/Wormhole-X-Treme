@@ -487,6 +487,7 @@ public class Stargate {
         for (final Location bc : getGatePortalBlocks()) {
             final Block b = getGateWorld().getBlockAt(bc.getBlockX(), bc.getBlockY(), bc.getBlockZ());
             b.setTypeId(typeId, false);
+            b.getState().update();
         }
     }
 
