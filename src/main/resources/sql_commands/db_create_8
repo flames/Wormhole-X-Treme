@@ -1,3 +1,31 @@
-ALTER TABLE Stargates MODIFY World TEXT DEFAULT '';
-
+BEGIN TRANSACTION;
+CREATE TEMPORARY TABLE Stargates_backup (
+Id INTEGER PRIMARY KEY,
+Name VARCHAR(128),
+GateData BINARY,
+Network VARCHAR(255),
+World VARCHAR(512) DEFAULT '',
+WorldName VARCHAR(255) DEFAULT '',
+WorldEnvironment VARCHAR(255) DEFAULT '',
+Owner VARCHAR(255),
+GateShape VARCHAR(255) DEFAULT '',
+Message VARCHAR(1024) DEFAULT ''
+);
+INSERT INTO Stargates_backup SELECT Id, Name, GateData, Network, World, WorldName, WorldEnvironment, Owner, GateShape, Message FROM Stargates;
+DROP Table Stargates;
+CREATE Table Stargates (
+Id INTEGER PRIMARY KEY,
+Name VARCHAR(128),
+GateData BINARY,
+Network VARCHAR(255),
+World VARCHAR(512) DEFAULT '',
+WorldName VARCHAR(255) DEFAULT '',
+WorldEnvironment VARCHAR(255) DEFAULT '',
+Owner VARCHAR(255),
+GateShape VARCHAR(255) DEFAULT '',
+Message VARCHAR(1024) DEFAULT ''
+);
+INSERT INTO Stargates SELECT Id, Name, GateData, Network, World, WorldName, WorldEnvironment, Owner, GateShape, Message FROM Stargates_backup;
+DROP TABLE Stargates_backup;
+COMMIT;
 INSERT INTO VersionInfo VALUES (8);
