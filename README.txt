@@ -1,4 +1,9 @@
-Wormhole X-Treme v0.9
+Wormhole X-Treme v1.020
+
+I will update this plugin whenever its broken or i want to add something :)
+
+Download: http://dl.dropbox.com/u/11260601/python/WormholeXTreme.jar
+(If you got error feel free to report ^^)
 
 New Install:
 
